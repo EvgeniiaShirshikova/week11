@@ -8,3 +8,6 @@ let price4 = document.getElementById('price4');
 let d = price4.innerHTML;
 let sum = document.getElementById('sum');
 sum.textContent = Number(a)+Number(b)+Number(c)+Number(d);
+function getDiscount() {
+    sum.textContent = sum.innerHTML*0.8
+}
