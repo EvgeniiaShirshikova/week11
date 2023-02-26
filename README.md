@@ -15,7 +15,7 @@
 
 2. Есть такой элемент: `<input id= "input" value = "Привет">`. Какой вызов поменяет значение в нём?
    let input = document.getElementById('input');
-   input.textContent = 'новый текст';
+   input.setAttribute('value', 'всем привет');
 
 3. Сколько потомков будет у `<div>` после кода ниже?
 
@@ -29,6 +29,8 @@
    </script>
    ```
 
+Нисколько, потому что элементы не заданы в JS
+
 4. В каких случаях для элемента elem не верно `elem.firstChild == elem.lastChild`?
 
 Верно - Когда у elem два или более потомков
@@ -38,11 +40,30 @@
 - Нет такого варианта ответа
 
 5. Какое свойство задает класс элемента?
+   .classList
+
 6. Для чего используется запись: `setAttribute(name, value)`?
+   чтобы установить значение элемента
+
 7. Назовите метод добавления текста к документу.
+   .textContent
+
 8. Как получить HTML-содержимое DOM-элемента elem?
+   свойство .innerHTML
+
 9. Что такое объект события и какие у него могут быть свойства?
+   Когда происходит событие, браузер создаёт объект события, записывает в него детали и передаёт его в качестве аргумента функции-обработчику.
+   Некоторые свойства объекта event:
+   event.type
+   Тип события, в данном случае "click".
+   event.currentTarget
+   Элемент, на котором сработал обработчик. Значение – обычно такое же, как и у this, но если обработчик является функцией-стрелкой или при помощи bind привязан другой объект в качестве this, то мы можем получить элемент из event.currentTarget.
+   event.clientX / event.clientY
+   Координаты курсора в момент клика относительно окна, для событий мыши.
+
 10. Что такое BOM и DOM?
+    document object model Фактически это и есть HTML-разметка: блоки, из которых состоит документ.
+    browser object model это дополнительные объекты, предоставляемые браузером (окружением), чтобы работать со всем, кроме документа.
 11. Есть вот такая страница:
 
     ```html
@@ -93,4 +114,13 @@
     2. Все элементы `label` **внутри** этой таблицы (их три)
     3. Форму `form` с именем `name="search-person"`
 
+Ответ:
+let agetable = document.getElementById('age-table');
+console.log(agetable);
+console.log(agetable.querySelectorAll('label'));
+let searchperson = document.getElementsByName('search-person');
+console.log(searchperson);
+
 12. Как сделать переход на другую страницу при клике на кнопку (без `<a href=...>`, только средствами JavaScript)?
+    через онклик
+    <button class="button1" onclick="window.location.href = 'https://learn.javascript.ru/introduction-browser-events#event-object'" type="button">Buy this Template</button>
