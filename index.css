@@ -41,6 +41,7 @@ img {
     background-color: black;
     color: white;
     height: 50px;
+    cursor: pointer;
 }
 
 .calc {
